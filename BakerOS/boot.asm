@@ -12,7 +12,7 @@ print:
     mov bx, 0           ; clear BX register to use as a counter (Base Register)
 .loop:
     lodsb               ; load the byte at address SI into AL and increment SI
-    cmp al, 0           ; comapre value in AL to o (end of string)
+    cmp al, 0           ; comapre value in AL to 0 (end of string)
     je .done            ; If AL is 0, then wwe are at end of string - we're done
     call print_char     ; Otherwise, print the character in AL
     jmp .loop           ; loop to next character
@@ -20,7 +20,7 @@ print:
     ret                 ; return from print function
 
 print_char:
-    mov ah, 0eh         ; move oeh into AH, BIOS servive number for printing a character
+    mov ah, 0eh         ; move 0eh into AH, BIOS servive number for printing a character
     int 0x10            ; call BIOS interrupt 0x10, handles screen operations
     ret                 ; return from print_char function
 message: db 'Hello kernel program', 0 ; null-terminated string to be printed
