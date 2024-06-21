@@ -8,7 +8,7 @@ int main(){
 
     pid_t id;
     printf("The ID of PARENT PROCESS is:  %d\n",getpid());
-    id =fork();
+    id = fork();
     if (id < 0){
         printf("\nFORK PROCESS creation has failed...");
         exit(-1);
